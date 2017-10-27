@@ -21,12 +21,12 @@ class Cache
     i = 0
     while i < @container.length do
       if @container[i][0] == key
-        return @container[i][1]
+        data = @container[i][1]
+        @container.insert(0, @container.delete_at(i))
+        return data
       end
       i +=1
     end
   end
-
-
 
 end

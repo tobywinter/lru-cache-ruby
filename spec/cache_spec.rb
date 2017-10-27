@@ -40,4 +40,10 @@ describe Cache do
     expect(cache.container[-1]).to eq(['Oh', 'My'])
   end
 
+  it 'getter moves selected element to index 0' do
+    2.times {cache.set('Good', 'Dog')}
+    4.times {cache.set('Oh', 'My')}
+    expect{cache.get('Good')}.to change{cache.container[0]}.from(['Oh', 'My']).to(['Good', 'Dog'])
+  end
+
 end
